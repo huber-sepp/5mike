@@ -4,17 +4,19 @@ Arma Reforger Missionsbau in 5 Minuten
 
 ## Reinkopieren, zurecht rücken, deployen
 
-Von Steam die Reforger Tools installieren.
+- Von Steam die Reforger Tools installieren.
 
-Alle Dependencies müssen in Reforger herunterladen und in der Workbench als Projekt der Liste hinzufügen.
+- Alle Dependencies müssen in Reforger herunterladen und in der Workbench als Projekt der Liste hinzufügen.
 https://reforger.armaplatform.com/workshop/695C85A248D888BC-5mikeDependencies
 
-Zusätzlich evtl. eine gemoddete Karte. 
+- Zusätzlich evtl. eine gemoddete Karte. 
 https://reforger.armaplatform.com/workshop/6626CB89B6B9C913-Bystrany
 
-Wenn man Dependencies oder etwas an Ordnern ändert, muss man die Workbench neustarten.
+- Wenn man Dependencies oder etwas an Ordnern ändert, muss man die Workbench neustarten.
 
-Neues Projekt anlegen mit 5mike_dependencies.
+- Neues Projekt anlegen mit 5mike_dependencies.
+
+(https://github.com/huber-sepp/5mike/blob/main/Bilder/poject-dependencies.png)
 
 Nach dem ersten Speichern liegt das Ding dann Standardmäßig hier 
 C:\Users\ DEIN BENUTZERNAME \Documents\My Games\ArmaReforgerWorkbench\addons
