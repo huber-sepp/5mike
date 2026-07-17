@@ -28,7 +28,7 @@ Dort liegt dann eine .ent, eine .ent.meta und ein Ordner mit _Layers. Die .layer
 - Die neu abgespeicherte default.layer mit denen aus \ArmaReforgerWorkbench\addons\5mike_kolguyev\worlds\5mike_Layers ersetzen.
 Workbench neustarten.
 
-![alt text](https://github.com/huber-sepp/5mike/blob/main/Bilder/place-areas.png)
+![alt text](https://github.com/huber-sepp/5mike/blob/main/Bilder/copy-layers.png)
 
 - WICHTIG: Links im five_mike-Layer das Modul AIWorld auswählen. Im Resource Browser im Ordner der jeweiligen Map nach nmn suchen und die gefundenen Dateien in den NavmeshWorldComponents der AIWorld ersetzen.
 
