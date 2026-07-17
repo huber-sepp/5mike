@@ -16,7 +16,7 @@ https://reforger.armaplatform.com/workshop/6626CB89B6B9C913-Bystrany
 
 - Neues Projekt anlegen mit 5mike_dependencies.
 
-(https://github.com/huber-sepp/5mike/blob/main/Bilder/poject-dependencies.png)
+![alt text](https://github.com/huber-sepp/5mike/blob/main/Bilder/poject-dependencies.png)
 
 Nach dem ersten Speichern liegt das Ding dann Standardmäßig hier 
 C:\Users\ DEIN BENUTZERNAME \Documents\My Games\ArmaReforgerWorkbench\addons
