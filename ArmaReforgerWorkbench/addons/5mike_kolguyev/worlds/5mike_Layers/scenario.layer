@@ -1,0 +1,675 @@
+$grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
+ Area1 {
+  components {
+   SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+    m_iRandomPercent 100
+    m_bShowDebugShapesDuringRuntime 1
+    m_bShowDebugShapesInWorkbench 1
+    m_eActivationType ON_AREA_TRIGGER_ACTIVATION
+    m_bDynamicDespawn 1
+    m_iDynamicDespawnRange 850
+    m_fAreaRadius 800
+    m_bOnce 0
+   }
+  }
+  coords 10524.904 22.406 9715.115
+  {
+   GenericEntity LayerTaskClearArea_1 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    coords -2.154 0.243 -9.551
+    {
+     $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+      Layer1 {
+       components {
+        SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+         m_iRandomPercent 100
+        }
+       }
+       coords -1.727 -0.049 -6.085
+       {
+        GenericEntity SlotClearArea1 : "{E53456990A756229}Prefabs/Systems/ScenarioFramework/Components/SlotClearArea.et" {
+         components {
+          SCR_ScenarioFrameworkSlotClearArea "{5A633AF525D5B972}" {
+           m_aPlugins {
+            SCR_ScenarioFrameworkPluginTrigger "{5A633AF5368D26A3}" {
+             m_fAreaRadius 75
+             m_aSpecificClassNames {
+              "SCR_ChimeraCharacter"
+             }
+             m_sActivatedByThisFaction "US"
+            }
+           }
+          }
+         }
+         coords 2.088 0.053 5.775
+        }
+       }
+      }
+      Layer_AI {
+       coords 0.218 0.002 -0.11
+       {
+        $grp GenericEntity : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
+         SlotAI1 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -1.53 0.006 -2.339
+         }
+         SlotAI2 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 1.099 -0.074 -2.941
+         }
+         SlotAI3 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 0.648 -0.026 1.722
+         }
+         SlotAI4 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -1.867 -0.245 12.778
+         }
+         SlotAI31 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{8A85D951C1BD17FC}Prefabs/Groups/CIVILIAN/Group_CIV_Base.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -1.723 -0.245 2.555
+         }
+        }
+        GenericEntity Slot1 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
+         components {
+          SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+          }
+         }
+         coords -2.968 -0.245 20.354
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+ Area2 {
+  components {
+   SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+    m_iRandomPercent 100
+    m_bShowDebugShapesDuringRuntime 1
+    m_bShowDebugShapesInWorkbench 1
+    m_eActivationType ON_AREA_TRIGGER_ACTIVATION
+    m_bDynamicDespawn 1
+    m_iDynamicDespawnRange 850
+    m_fAreaRadius 800
+    m_bOnce 0
+   }
+  }
+  coords 9755.371 55.058 9450.182
+  {
+   GenericEntity LayerTaskClearArea1 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    coords -2.154 -0.106 -9.551
+    {
+     $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+      Layer2 {
+       components {
+        SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+         m_iRandomPercent 100
+        }
+       }
+       coords -1.727 0.403 -6.085
+       {
+        GenericEntity SlotClearArea2 : "{E53456990A756229}Prefabs/Systems/ScenarioFramework/Components/SlotClearArea.et" {
+         components {
+          SCR_ScenarioFrameworkSlotClearArea "{5A633AF525D5B972}" {
+           m_aPlugins {
+            SCR_ScenarioFrameworkPluginTrigger "{5A633AF5368D26A3}" {
+             m_fAreaRadius 75
+             m_aSpecificClassNames {
+              "SCR_ChimeraCharacter"
+             }
+             m_sActivatedByThisFaction "US"
+            }
+           }
+          }
+         }
+         coords 2.088 -0.394 5.775
+        }
+       }
+      }
+      Layer_AI2 {
+       coords 0.218 0.001 -0.11
+       {
+        $grp GenericEntity : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
+         SlotAI6 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 52.344 0.446 32.198
+         }
+         SlotAI7 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 54.973 0.611 31.596
+         }
+         SlotAI8 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 54.522 0.969 36.259
+         }
+         SlotAI9 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -1.867 0.181 12.778
+         }
+         SlotAI32 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{8A85D951C1BD17FC}Prefabs/Groups/CIVILIAN/Group_CIV_Base.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 50.173 0.645 36.911
+         }
+        }
+        GenericEntity Slot3 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
+         components {
+          SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+          }
+         }
+         coords -1.019 0.627 18.81
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+ Area3 {
+  components {
+   SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+    m_iRandomPercent 100
+    m_bShowDebugShapesDuringRuntime 1
+    m_bShowDebugShapesInWorkbench 1
+    m_eActivationType ON_AREA_TRIGGER_ACTIVATION
+    m_bDynamicDespawn 1
+    m_iDynamicDespawnRange 850
+    m_fAreaRadius 800
+    m_bOnce 0
+   }
+  }
+  coords 9581.872 130.652 10102.798
+  {
+   GenericEntity LayerTaskClearArea2 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    coords -2.154 -0.04 -9.551
+    {
+     $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+      Layer3 {
+       components {
+        SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+         m_iRandomPercent 100
+        }
+       }
+       coords -1.727 -0.125 -6.085
+       {
+        GenericEntity SlotClearArea3 : "{E53456990A756229}Prefabs/Systems/ScenarioFramework/Components/SlotClearArea.et" {
+         components {
+          SCR_ScenarioFrameworkSlotClearArea "{5A633AF525D5B972}" {
+           m_aPlugins {
+            SCR_ScenarioFrameworkPluginTrigger "{5A633AF5368D26A3}" {
+             m_fAreaRadius 75
+             m_aSpecificClassNames {
+              "SCR_ChimeraCharacter"
+             }
+             m_sActivatedByThisFaction "US"
+            }
+           }
+          }
+         }
+         coords 2.088 0.053 5.775
+        }
+       }
+      }
+      Layer_AI3 {
+       coords 0.218 0.01 -0.11
+       {
+        $grp GenericEntity : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
+         SlotAI11 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -40.819 -1.425 63.544
+         }
+         SlotAI12 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -21.08 -1.558 65.577
+         }
+         SlotAI13 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -51.575 -1.472 66.063
+         }
+         SlotAI14 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 33.768 -0.104 -56.428
+         }
+         SlotAI34 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{8A85D951C1BD17FC}Prefabs/Groups/CIVILIAN/Group_CIV_Base.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 52.75 -0.227 -39.178
+         }
+        }
+        GenericEntity Slot4 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
+         components {
+          SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+          }
+         }
+         coords 36.598 0.03 -50.318
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+ Area4 {
+  components {
+   SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+    m_iRandomPercent 100
+    m_bShowDebugShapesDuringRuntime 1
+    m_bShowDebugShapesInWorkbench 1
+    m_eActivationType ON_AREA_TRIGGER_ACTIVATION
+    m_bDynamicDespawn 1
+    m_iDynamicDespawnRange 850
+    m_fAreaRadius 800
+    m_bOnce 0
+   }
+  }
+  coords 8667.804 8.274 10149.44
+  {
+   GenericEntity LayerTaskClearArea4 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    coords -2.154 0.751 -9.551
+    {
+     $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+      Layer4 {
+       components {
+        SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+         m_iRandomPercent 100
+        }
+       }
+       coords -1.727 0.649 -6.085
+       {
+        GenericEntity SlotClearArea4 : "{E53456990A756229}Prefabs/Systems/ScenarioFramework/Components/SlotClearArea.et" {
+         components {
+          SCR_ScenarioFrameworkSlotClearArea "{5A633AF525D5B972}" {
+           m_aPlugins {
+            SCR_ScenarioFrameworkPluginTrigger "{5A633AF5368D26A3}" {
+             m_fAreaRadius 75
+             m_aSpecificClassNames {
+              "SCR_ChimeraCharacter"
+             }
+             m_sActivatedByThisFaction "US"
+            }
+           }
+          }
+         }
+         coords 2.088 -0.603 5.775
+        }
+       }
+      }
+      Layer_AI4 {
+       coords 0.218 0.021 -0.11
+       {
+        $grp GenericEntity : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
+         SlotAI16 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -17.789 -0.125 -7.023
+         }
+         SlotAI17 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -39.752 -5.223 47.563
+         }
+         SlotAI18 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -38.546 -4.013 29.758
+         }
+         SlotAI19 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -8.852 -3.796 34.238
+          angles 0 137.28 0
+         }
+         SlotAI35 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{8A85D951C1BD17FC}Prefabs/Groups/CIVILIAN/Group_CIV_Base.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 1.729 0.743 -6.121
+         }
+        }
+        GenericEntity Slot5 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
+         components {
+          SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+          }
+         }
+         coords -5.458 -3.084 27.665
+         angles 0 132.306 0
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+ Area5 {
+  components {
+   SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+    m_iRandomPercent 100
+    m_bShowDebugShapesDuringRuntime 1
+    m_bShowDebugShapesInWorkbench 1
+    m_eActivationType ON_AREA_TRIGGER_ACTIVATION
+    m_bDynamicDespawn 1
+    m_iDynamicDespawnRange 850
+    m_fAreaRadius 800
+    m_bOnce 0
+   }
+  }
+  coords 8624.317 95.373 9320.687
+  angles 0 44.701 0
+  {
+   GenericEntity LayerTaskClearArea3 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    coords -2.154 0.243 -9.551
+    {
+     $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+      Layer5 {
+       components {
+        SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+         m_iRandomPercent 100
+        }
+       }
+       coords -1.727 -0.049 -6.085
+       {
+        GenericEntity SlotClearArea5 : "{E53456990A756229}Prefabs/Systems/ScenarioFramework/Components/SlotClearArea.et" {
+         components {
+          SCR_ScenarioFrameworkSlotClearArea "{5A633AF525D5B972}" {
+           m_aPlugins {
+            SCR_ScenarioFrameworkPluginTrigger "{5A633AF5368D26A3}" {
+             m_fAreaRadius 75
+             m_aSpecificClassNames {
+              "SCR_ChimeraCharacter"
+             }
+             m_sActivatedByThisFaction "US"
+            }
+           }
+          }
+         }
+         coords 2.088 0.053 5.775
+        }
+       }
+      }
+      Layer_AI5 {
+       coords 0.218 0.002 -0.11
+       {
+        $grp GenericEntity : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
+         SlotAI21 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 45.991 11.868 132.773
+         }
+         SlotAI22 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 25.456 11.599 151.644
+         }
+         SlotAI23 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -47.006 0.351 -26.667
+         }
+         SlotAI24 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -1.466 -0.245 13.069
+         }
+         SlotAI36 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{8A85D951C1BD17FC}Prefabs/Groups/CIVILIAN/Group_CIV_Base.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -18.469 -0.119 -14.419
+          angles 0 -44.701 0
+         }
+        }
+        GenericEntity Slot6 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
+         components {
+          SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+          }
+         }
+         coords -1.033 -0.228 19.577
+         angles 0 1.875 0
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+ Area6 {
+  components {
+   SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+    m_iRandomPercent 100
+    m_bShowDebugShapesDuringRuntime 1
+    m_bShowDebugShapesInWorkbench 1
+    m_eActivationType ON_AREA_TRIGGER_ACTIVATION
+    m_bDynamicDespawn 1
+    m_iDynamicDespawnRange 850
+    m_fAreaRadius 800
+    m_bOnce 0
+   }
+  }
+  coords 9570.848 29.614 8780.303
+  {
+   GenericEntity LayerTaskClearArea5 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    coords -2.154 -2.296 -9.551
+    {
+     $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+      Layer6 {
+       components {
+        SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+         m_iRandomPercent 100
+        }
+       }
+       coords -1.727 -1.287 -6.085
+       {
+        GenericEntity SlotClearArea6 : "{E53456990A756229}Prefabs/Systems/ScenarioFramework/Components/SlotClearArea.et" {
+         components {
+          SCR_ScenarioFrameworkSlotClearArea "{5A633AF525D5B972}" {
+           m_aPlugins {
+            SCR_ScenarioFrameworkPluginTrigger "{5A633AF5368D26A3}" {
+             m_fAreaRadius 75
+             m_aSpecificClassNames {
+              "SCR_ChimeraCharacter"
+             }
+             m_sActivatedByThisFaction "US"
+            }
+           }
+          }
+         }
+         coords 2.088 0.053 5.775
+        }
+       }
+      }
+      Layer_AI6 {
+       coords 0.218 -0.084 -0.11
+       {
+        $grp GenericEntity : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
+         SlotAI26 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords -7.369 -15.671 -110.408
+         }
+         SlotAI27 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 38.269 -15.671 -72.771
+         }
+         SlotAI28 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 88.516 -15.672 -72.297
+         }
+         SlotAI29 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 51.411 -15.718 -139.964
+          angles 0 -139.535 0
+         }
+         SlotAI37 {
+          components {
+           SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_sObjectToSpawn "{8A85D951C1BD17FC}Prefabs/Groups/CIVILIAN/Group_CIV_Base.et"
+            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
+           }
+          }
+          coords 45.56 -15.672 -117.319
+         }
+        }
+        GenericEntity Slot7 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
+         components {
+          SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+          }
+         }
+         coords 44.612 -15.639 -142.763
+         angles 0 -137.043 0
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

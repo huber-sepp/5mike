@@ -1,0 +1,279 @@
+SCR_AIWorld AIWorld : "{672531FAC0834C06}Prefabs/AI/SCR_AIWorld_Cain.et" {
+ components {
+  NavmeshWorldComponent "{5584F30E67F617AD}" {
+   NavmeshSettings NavmeshWorld "{50FC63BEBE3973C5}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{60B8A297F9E52831}" {
+     NavmeshFile "{ACBE49C3E71A9E65}worlds/GameMaster/Navmeshes/GM_Cain.nmn"
+    }
+   }
+  }
+  NavmeshWorldComponent "{5584F30EEFEE1223}" {
+   NavmeshSettings ChimeraNavmeshWorld "{50FC63BEBE3973C5}" {
+    NavmeshFilesConfig BaseNavmeshFilesConfig "{60B8A297F3B4EE8A}" {
+     NavmeshFile "{27D8B11BF4E78009}worlds/GameMaster/Navmeshes/GM_Cain_vehicles.nmn"
+    }
+   }
+  }
+ }
+ coords 6399.335 444.104 6417.631
+}
+PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
+ coords 4883.794 14.438 8950.569
+}
+SCR_GameModeEditor GameMode : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
+ components {
+  SCR_ArsenalManagerComponent "{6120A34EB1E9BBEF}" {
+   m_sLoadoutSaveBlackListHolder "{183361B6DA2C304F}Configs/Arsenal/ArsenalLoadoutSaveBlacklists.conf"
+  }
+  SCR_GameModeSFManager "{699C7184C6F687A8}" {
+   m_iMaxNumberOfTasks 10
+   m_bDynamicDespawn 1
+   m_iUpdateRate 10
+  }
+  SCR_InitWeatherComponent "{58DCAB6D83A0CB17}" {
+   m_sInitialStartingWeatherId "Sunny"
+   m_initialWeatherDurationMin 23
+   m_initialWeatherDurationMax 24
+  }
+  SCR_WelcomeScreenComponent "{5D7290AC8A3E657E}" {
+   Enabled 0
+  }
+ }
+ coords 6396.046 443.714 6417.921
+ userScript "	// NOT const!!! // about arrays: scripts/Core/proto/Types.c"\
+ "	protected ref array<IEntity> spawned_opfor = {};"\
+ "	protected ref array<int> to_delete = {};"\
+ "	"\
+ "	"\
+ "	void five_mike_loop()"\
+ "    {"\
+ "		protected PlayerManager playerManager = GetGame().GetPlayerManager();"\
+ "		protected array<int> allPlayers = {};"\
+ "		playerManager.GetPlayers(allPlayers);"\
+ ""\
+ "		protected EntitySpawnParams params = new EntitySpawnParams();"\
+ "		params.TransformMode = ETransformMode.WORLD;"\
+ "		"\
+ "		protected Resource resource_opfor = Resource.Load(\"{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et\");"\
+ "		protected Resource resource_opfor_02 = Resource.Load(\"{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et\");"\
+ "		"\
+ "		Print(\"5mike loop ext execute\", LogLevel.NORMAL);"\
+ "		"\
+ "		// OPFOR"\
+ "		for (int i = 0; i < spawned_opfor.Count(); i++)"\
+ "		{"\
+ "			bool too_far = true;				"\
+ "			foreach (int oneplayerid : allPlayers)"\
+ "			{"\
+ "				protected IEntity player = playerManager.GetPlayerControlledEntity(oneplayerid);"\
+ "				if (!player) continue;"\
+ "				if ( spawned_opfor[i] != NULL )"\
+ "				{"\
+ "					if ( vector.Distance(spawned_opfor[i].GetOrigin(), player.GetOrigin()) < 400 )"\
+ "					{"\
+ "						too_far = false;"\
+ "					}"\
+ "				}"\
+ "			}"\
+ "			if ( too_far )"\
+ "			{"\
+ "				to_delete.Insert(i);"\
+ "			}"\
+ "		}"\
+ "		"\
+ "		for (int i = 0; i < to_delete.Count(); i++)"\
+ "		{"\
+ "			if ( spawned_opfor.IsIndexValid(to_delete[i]) )"\
+ "			{"\
+ "				if ( spawned_opfor[to_delete[i]] != NULL )"\
+ "				{"\
+ "					SCR_EntityHelper.DeleteEntityAndChildren( spawned_opfor[to_delete[i]] );"\
+ "				}"\
+ "				spawned_opfor.Remove(to_delete[i]);"\
+ "			}"\
+ "		}"\
+ "		"\
+ "		to_delete.Clear();"\
+ "		"\
+ "		"\
+ "		// foreach (int oneplayerid : allPlayers){}"\
+ "		int oneplayerid = allPlayers.GetRandomElement();"\
+ "		Print(\"oneplayerid: \" + oneplayerid, LogLevel.NORMAL);"\
+ "		"\
+ "		protected IEntity player = playerManager.GetPlayerControlledEntity(oneplayerid);"\
+ "		if (!player) return;"\
+ "		protected vector spawn_pos = SCR_Math2D.GenerateRandomPointInRadius(400, 405, player.GetOrigin(), true);"\
+ "		bool too_close = false;"\
+ "		foreach (int oneplayerid2 : allPlayers)"\
+ "		{"\
+ "			protected IEntity player2 = playerManager.GetPlayerControlledEntity(oneplayerid2);"\
+ "			if (!player2) continue;"\
+ "			if ( vector.Distance(player2.GetOrigin(), spawn_pos) < 400 )"\
+ "			{"\
+ "				too_close = true;"\
+ "			}"\
+ "		}"\
+ "		"\
+ "		if ( vector.Distance(GetGame().GetWorld().FindEntityByName(\"base_blufor\").GetOrigin(), spawn_pos) < 450 )"\
+ "		{"\
+ "			too_close = true;"\
+ "		}"\
+ "		"\
+ "		if ( !too_close )"\
+ "		{"\
+ "			//params.Transform = {\"1 0 0\",\"0 1 0\",\"0 0 1\",spawn_pos};"\
+ "			params.Transform[3] = spawn_pos;"\
+ "			ResourceName wp_prefab = \"{FFF9518F73279473}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_Move.et\";"\
+ "			"\
+ "			if( (spawned_opfor.Count() < 20) && (vector.Distance(GetGame().GetWorld().FindEntityByName(\"spawner_opfor\").GetOrigin(), spawn_pos) < 6000)  )"\
+ "			{"\
+ "				protected IEntity opfor = GetGame().SpawnEntityPrefab(resource_opfor, GetGame().GetWorld(), params);"\
+ "				spawned_opfor.Insert(opfor);"\
+ "				"\
+ "				EntitySpawnParams spawnParams_opfor = new EntitySpawnParams();"\
+ "				spawnParams_opfor.Transform[3] = player.GetOrigin(); // player.GetOrigin() // spawn_pos"\
+ "				AIWaypoint wp_opfor =  AIWaypoint.Cast(GetGame().SpawnEntityPrefab(Resource.Load(wp_prefab), GetGame().GetWorld(), spawnParams_opfor));"\
+ "				"\
+ "				protected AIGroup group_opfor = AIGroup.Cast(opfor);"\
+ "				group_opfor.AddWaypoint(wp_opfor);"\
+ "			}"\
+ "		}"\
+ "	}"
+ OnGameStart ""\
+ "		Print(\"5mike loop ext initialized\", LogLevel.NORMAL);"\
+ "		GetGame().GetCallqueue().CallLater(this.five_mike_loop, 90000, true);"\
+ "	"
+ {
+  RadioManagerEntity RadioManager {
+   ID "56E685E9ECAABCFD"
+  }
+  ScriptedChatEntity ScriptedChatEntity {
+   ID "56E685E9EF952A67"
+  }
+  SCR_FactionManager FactionManager {
+   ID "56E685E92F1B7E7A"
+   Factions {
+    SCR_Faction "{56DEAC40D2DBC8B1}" {
+     UIInfo SCR_FactionUIInfo "{528C961236B7DCD3}" {
+      Name "BLUFOR"
+      Icon "{2A3D1DA9D66E28C9}UI/Textures/Editor/EditableEntities/Factions/EditableEntity_Faction_Selected.edds"
+     }
+     m_bIsPlayable 1
+     m_sFactionFlag "{5482FF3C7863EB18}UI/Textures/Flags/Non-Combatant-flag-base.edds"
+     m_FactionFlagMaterial "{6E9DA07CBCE6BE7F}Assets/Props/Fabric/Flags/Data/Flag_1_2_White.emat"
+     m_aEntityCatalogs {
+      SCR_EntityCatalogMultiList "{5C68A0EEB3F124F9}" {
+       m_aMultiLists {
+        SCR_EntityCatalogMultiListEntry "{5C68AD59F0753ABE}" {
+         m_aEntities {
+          SCR_EntityCatalogInventoryItem "{5E22CEC92125910C}" {
+           m_bEnabled 0
+          }
+          SCR_EntityCatalogInventoryItem "{65E8A9CF3109D56F}" {
+           m_bEnabled 0
+          }
+          SCR_EntityCatalogInventoryItem "{65E8A9CF5194ED97}" {
+           m_bEnabled 0
+          }
+         }
+        }
+        SCR_EntityCatalogMultiListEntry "{5C68AD59AA2B2FF4}" {
+         m_aEntities {
+          SCR_EntityCatalogInventoryItem "{65AD38AEF0195F30}" {
+           m_bEnabled 0
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+  SCR_EditorSettingsEntity EditorSettingsEntity {
+   ID "5982CAB0B3E6AA4C"
+  }
+  SCR_LoadoutManager LoadoutManager {
+   ID "56E685E92F1B7E2A"
+   m_aPlayerLoadouts {
+    SCR_FactionPlayerLoadout "{5596D845DBEEF78C}" {
+     m_sLoadoutName "TL"
+     m_sLoadoutResource "{9E1A88F3CFB5C274}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC_MC/TL.et"
+    }
+    SCR_PlayerArsenalLoadout "{568CC9D1BC0FCCF3}" {
+     m_sLoadoutResource "{1791BB083C7FD88B}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC_MC/Character_RHS_USMC_MARSOC_MC_LAT2.et"
+    }
+    SCR_FactionPlayerLoadout "{69E042C11DD3CB77}" {
+     m_sLoadoutName "Operator"
+     m_sLoadoutResource "{1791BB083C7FD88B}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC_MC/Character_RHS_USMC_MARSOC_MC_LAT2.et"
+     m_sAffiliatedFaction "US"
+    }
+    SCR_FactionPlayerLoadout "{69E042C128BA1361}" {
+     m_sLoadoutName "CFR"
+     m_sLoadoutResource "{F4E395634D38DFE5}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC_MC/CFR.et"
+     m_sAffiliatedFaction "US"
+    }
+   }
+  }
+ }
+}
+MusicManager MusicManager : "{359452CCDBDD03F5}Prefabs/Sounds/Music/MusicManager_Campaign.et" {
+ coords 4883.426 14.456 8950.561
+}
+SCR_SpawnPoint spawner_opfor : "{45225582B358C31A}PrefabsEditable/SpawnPoints/E_SpawnPoint_USSR.et" {
+ coords 6489.916 493.374 6655.972
+}
+GenericEntity : "{8CA93330EA43EA78}PrefabsEditable/Auto/Props/Military/Compositions/USSR/E_ArsenalBox_USSR.et" {
+ components {
+  SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+   m_eSupportedArsenalItemTypes 2054014
+   m_eArsenalSaveType NO_RESTRICTIONS
+  }
+  SCR_FactionAffiliationComponent "{5A50E7655452A21D}" {
+   "faction affiliation" "RHS_AFRF"
+  }
+ }
+ coords 11375.782 86.947 10521.521
+ angles 0 -67.888 0
+}
+$grp GenericEntity : "{C1AB654F77ABA58B}PrefabsEditable/Auto/Props/Military/Compositions/US/E_ArsenalBox_US.et" {
+ arsenal_vanilla {
+  components {
+   SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+    m_eSupportedArsenalItemTypes 1000028
+    m_eArsenalSaveType NO_RESTRICTIONS
+   }
+  }
+  coords 11371.896 86.945 10525.612
+  angles 0 18.439 0
+ }
+ {
+  components {
+   SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+    m_eSupportedArsenalItemTypes 2055900
+    m_eArsenalSaveType NO_RESTRICTIONS
+   }
+   SCR_FactionAffiliationComponent "{5A50E7655452A21D}" {
+    "faction affiliation" "RHS_USAF"
+   }
+  }
+  coords 11376.457 86.946 10523.078
+  angles 0 -73.43 0
+ }
+}
+SCR_SpawnPoint base_blufor : "{CEA2B24051A44525}PrefabsEditable/SpawnPoints/E_SpawnPoint_US.et" {
+ coords 11376.42 87.141 10527.871
+}
+GenericEntity : "{E83944C37C6FA465}PrefabsEditable/Auto/Props/Military/Compositions/FIA/E_ArsenalBox_FIA.et" {
+ components {
+  SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
+   m_eSupportedArsenalItemTypes 2054108
+   m_eArsenalSaveType NO_RESTRICTIONS
+  }
+  SCR_FactionAffiliationComponent "{5A50E7655452A21D}" {
+   "faction affiliation" "RHS_ION"
+  }
+ }
+ coords 11374.976 86.932 10519.825
+ angles 0 -65.288 0
+}

@@ -1,0 +1,22 @@
+GameProject {
+ ID "5mike_kolguyev"
+ GUID "697D2C23B028CC25"
+ TITLE "5mike Kolguyev"
+ Dependencies {
+  "695C85A248D888BC"
+ }
+ Configurations {
+  GameProjectConfig PC {
+  }
+  GameProjectConfig XBOX_ONE {
+  }
+  GameProjectConfig XBOX_SERIES {
+  }
+  GameProjectConfig PS4 {
+  }
+  GameProjectConfig PS5 {
+  }
+  GameProjectConfig HEADLESS {
+  }
+ }
+}

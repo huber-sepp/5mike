@@ -1,73 +1,53 @@
 # 5mike
 
-Enfusion in 5 Minuten
+Arma Reforger Missionsbau in 5 Minuten
 
-Für alle die keinen Bock haben, stundenlang Video-Tutorials zu gucken und sich rumzuärgern, 
-weil alles so anders ist als in Arma 3.
+## Reinkopieren, zurecht rücken, deployen
+
+Von Steam die Reforger Tools installieren.
+
+Alle Dependencies müssen in Reforger herunterladen und in der Workbench als Projekt der Liste hinzufügen.
+https://reforger.armaplatform.com/workshop/695C85A248D888BC-5mikeDependencies
+
+Zusätzlich evtl. eine gemoddete Karte. 
+https://reforger.armaplatform.com/workshop/6626CB89B6B9C913-Bystrany
+
+Wenn man Dependencies oder etwas an Ordnern ändert, muss man die Workbench neustarten.
+
+Neues Projekt anlegen mit 5mike_dependencies.
+
+Nach dem ersten Speichern liegt das Ding dann Standardmäßig hier 
+C:\Users\ DEIN BENUTZERNAME \Documents\My Games\ArmaReforgerWorkbench\addons
+
+Links in der Seitenleiste eine "world" auswählen und die .ent Datei in dem Ordner doppelklicken. 
+
+Im  World-Editor auf File->New World->Sub-scene.
+Dann "Save As" im Projekt-Ordner unter "worlds". 
+Dort liegt dann eine .ent, eine .ent.meta und ein Ordner mit _Layers. Die .layer-Dateien darin enthalten am Ende alles was im World Editor platziert wird.
+
+Die neu abgespeicherte default.layer mit denen aus \ArmaReforgerWorkbench\addons\5mike_kolguyev\worlds\5mike_Layers ersetzen.
+Workbench neustarten.
+
+WICHTIG: Links im five_mike-Layer das Modul AIWorld auswählen. Im Resource Browser im Ordner der jeweiligen Map nach nmn suchen und die gefundenen Dateien in den NavmeshWorldComponents der AIWorld ersetzen.
+
+Die Dinge im five_mike-Layer an den gewünschten Startpunkt ziehen. 
+
+Die "Areas" im scenario-Layer an die gewünschten Missionsziele ziehen. 
+
+Links in der Hirarchie "SlotAI" ist für Gruppen, "Slot" für seelenlose Dinge.
+
+Bei allen davon kann man rechts im Scenario-Modul das "Object To Spawn" definieren.
+
+In den eigenen Projekt-Ordner kopieren: \ArmaReforgerWorkbench\addons\5mike_kolguyev\Missions.
+
+In der Workbench passend umbenennen und Doppelklick auf die conf. Darin die eigene World auswählen.
+
+Speichern und im Workshop deployen.
 
 
 ## Tipps
 
 - Prefabs: Alles was wir im Resource Browser suchen, nehmen wir aus dem Ordner "Prefabs". Das sind funktionsfähig vorkonfigurierte Pakete, wo alle nötigen Komponenten schon dabei sind. Rechts in der Leiste kann man diese samt Unterkomponenten konfigurieren. Dabei nichts löschen, sondern nur deaktivieren.
-- Positionierung: Dazu gibt es den Trick, ein vorhandenes Objekt auf der auszuwählen und in der rechten Leiste bei Transformation auf das Label "Coords" Rechtsklick und Copy zu machen, was alle drei Koordinaten mitnimmt, die man dann bei z.B. der Area reinpasten kann. Geht oft erheblich schneller.
+- Prefabs und fast alles andere kann man im eigenen Mod "overriden". So kann man z.B. das Loadout von vorhandenen Einheiten ändern
+- Bebilderung: In der Workbench links unten gibt es die Buttons "Import" und "Create". Hier kann man JPGs importieren und in .edds Dateien umwandeln lassen. (https://forums.bohemia.net/forums/topic/272105-how-to-create-an-edds-file-for-images/)
 
-
-## Basis-Module und Spieler-Slots
-
-Von Steam die Reforger Tools installieren.
-
-Alle Dependencies müssen in den Tools als Projekt der Liste hinzugefügt werden.
-
-Links in der Seitenleiste eine "world" auswählen und die .ent Datei in dem Ordner doppelklicken. 
-
-Im  World-Editor auf File->New World->Sub-scene.
-Dann "Save As" in den Projekt-Ordner am besten in einen Unterordner "worlds" so wie da wo man es her hat. 
-Dort liegt dann eine .ent, eine .ent.meta und ein Ordner mit _Layers. Die .layer-Dateien darin enthalten am Ende alles was im World Editor platziert wird.
-
-Jetzt kann man im eigentlichen Sinne loslegen.
-
-Folgende Prefabs platzieren:
-- SCR_GameModeEditor
-- PerceptionManager
-- SCR_AIWorld_Eden
-- SpawnPoint_ der gewünschten Faction
-
-Den FactionManager auswählen (Unterpunkt von GameMode) und in der Leiste rechts bei der gewünschten Faction ein Häkchen bei "Is Playable" setzen.
-
-Ab diesem Zeitpunkt kann man auf Play drücken und es testen.
-
-Den LoadoutManager auswählen (Unterpunkt von GameMode) und in der Leiste rechts die Player Loadouts aufklappen. Die mit der gewünschten Affiliated Faction stehen später zur Auswahl. Wenn man bei einer bereits ausgefüllten Loadout Resource auf dei Lupe klickt, öffnet sich direkt der Ordner mit den eigentlichen Charakter Prefabs. DIe kann man dann auf das Feld drag&droppen.
-
-
-## Spawn-Trigger mit dem "Scenario Framework"
-
-Im Resource Browser nach SF-Sample-TaskClearArea.ent suchen und doppelklicken. 
-
-"Save World As" in den eigenen Projektordner neben die eigene World.
-
-Ordner \worlds\SF-Sample-TaskClearArea_Layers öffnen.
-
-default.layer in etwas anderes wie z.B. scenario.layer umbenennen und in den Layer Ordner unserer World kopieren.
-
-Unsere World wieder öffnen durch Doppelklick auf die .ent-Datei.
-
-Wir haben jetzt den neuen Layer mit einer "Area". Das ist sowas wie ein Trigger in Arma 3 Eden, mit dem man Zeug spawnen und despawnen kann.
-
-Jetzt die Area an eine gewünschte Stelle schieben.
-
-Bei der Area in der rechten Leiste kann man jetzt unter anderem die Dimensionen und Dynamic Despwan konfigurieren. 
-
-Als Unterpunkt der Area findet man Layer_AI mit drei Slots. Es heißt zwar AI, aber man kann hier beliebige Prefabs auf das "Object To Spawn"-Feld ziehen.
-
-
-## Missions-Config um es im Multiplayer starten zu können
-
-https://github.com/milsimunited/5mike/tree/main/5mike/missions
-
-Diese Dateien kann man in der Workbench durch Doppelklick bearbeiten.
-
-Bebilderung: In der Workbench links unten gibt es die Buttons "Import" und "Create". Hier kann man JPGs importieren und in .edds Dateien umwandeln lassen. (https://forums.bohemia.net/forums/topic/272105-how-to-create-an-edds-file-for-images/)
-
-
-## TLDR - Gib mir alle Dateien
-https://github.com/milsimunited/5mike/tree/main/5mike
