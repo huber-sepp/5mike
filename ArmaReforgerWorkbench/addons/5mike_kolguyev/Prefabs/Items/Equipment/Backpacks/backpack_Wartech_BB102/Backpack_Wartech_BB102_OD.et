@@ -1,0 +1,18 @@
+GenericEntity : "{FD201F51636A9ACD}Prefabs/Items/Equipment/Backpacks/backpack_Wartech_BB102/Backpack_Wartech_BB102_base.et" {
+ ID "511E9C6ADE70F798"
+ components {
+  SCR_UniversalInventoryStorageComponent "{5222CB03A40528FA}" {
+   Attributes SCR_ItemAttributeCollection "{5222CB039E9715D1}" {
+    ItemDisplayName UIInfo "{5222CB03904B414C}" {
+     Name "#RHS-Backpack_WartechBB102_Name - #RHS-Color_Olive"
+    }
+   }
+   MaxCumulativeVolume 16000
+  }
+  BaseLoadoutClothComponent "{511E9C6ADE70F7BB}" {
+   ItemModel "{452A84D4BB000D2F}Assets/Items/Equipment/Backpacks/Wartech_BB102_Backpack/BB102_ground.xob"
+   DeflatedModel "{AD81AC53FCFA8AE2}Assets/Items/Equipment/Backpacks/Wartech_BB102_Backpack/BB102_inf.xob"
+  }
+ }
+ coords 125.326 0.909 126.519
+}

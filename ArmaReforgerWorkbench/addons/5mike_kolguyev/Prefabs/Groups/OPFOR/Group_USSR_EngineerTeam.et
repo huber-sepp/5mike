@@ -1,0 +1,6 @@
+SCR_AIGroup : "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et" {
+ ID "0000000000000001"
+ m_aUnitPrefabSlots {
+  "{F8F49E968BA976C7}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Mavic.et"
+ }
+}

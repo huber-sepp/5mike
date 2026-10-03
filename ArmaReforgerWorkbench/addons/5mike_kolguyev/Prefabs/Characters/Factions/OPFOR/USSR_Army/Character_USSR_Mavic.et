@@ -1,0 +1,87 @@
+SCR_ChimeraCharacter : "{DCB41B3746FDD1BE}Prefabs/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Rifleman.et" {
+ ID "200D264F0EEA1A28"
+ components {
+  NOVA_Drons "{6A3E5E0296A55576}" {
+   m_eOperatorType RECON
+   m_sDronePrefab "{55C5BEE65087F7CD}Prefabs/Drones/DJIBase/DJIRGD5Dropper.et"
+  }
+  SCR_EditableCharacterComponent "{520EA1D2F659C85C}" {
+   m_UIInfo SCR_EditableEntityUIInfo "{5298E609432D192D}" {
+    Name "Drone Operator Mavic"
+    Icon "{EE0B4CDEA86FC24A}UI/Textures/DeployMenu/LoadoutIcons/LoadoutIcons.imageset"
+    IconSetName "EditableEntity_Character_Engineer"
+    m_Image "{BD1C0EB9EEE10B25}UI/Textures/EditorPreviews/Characters/Factions/OPFOR/USSR_Army/Character_USSR_Sapper.edds"
+    m_aAuthoredLabels + {
+     ROLE_RIFLEMAN
+    }
+    m_aAutoLabels {
+     SIZE_M
+    }
+   }
+   m_VariantData SCR_EditableEntityVariantData "{60F6B83ED4C13CC3}" {
+    m_aVariants {
+     SCR_EditableEntityVariant "{60F6B83ED3FB7538}" {
+      m_bEnabled 0
+     }
+    }
+   }
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFAB}" {
+   WeaponTemplate "{E7300F3F0E4F8250}Prefabs/Weapons/Rifles/AK74M/variants/Rifle_AK104_b10m_b19n_b33_pt1_dtk2_rk3_xps.et"
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFB7}" {
+   WeaponTemplate ""
+  }
+  CharacterWeaponSlotComponent "{520EA1D2F659CFDC}" {
+   WeaponTemplate "{E2434ED1318D8476}Prefabs/Characters/Items/DroneController.et"
+  }
+  BaseLoadoutManagerComponent "{520EA1D2DB11821E}" {
+   Slots {
+    LoadoutSlotInfo Hat {
+     Prefab "{8213DBE349CA6588}Prefabs/Characters/HeadGear/Helmet_LShZ/variants/Helmet_LShZ_HC_3M_atacs2.et"
+    }
+    LoadoutSlotInfo Jacket {
+     Prefab "{95D27E4D1ADD1F43}Prefabs/Characters/Uniforms/Shirt_CP_G3/MOH_camo/CP_G3_Shirt_ColA_OutT_FullS_MOH.et"
+    }
+    LoadoutSlotInfo ArmoredVest {
+     Prefab "{6363A33BE9D9B02D}Prefabs/Characters/Vests/Vest_Taktika/Variants/Vest_Taktika_groinProtection_SOBR.et"
+    }
+    LoadoutSlotInfo Pants {
+     Prefab "{BA144152CB81DB0F}Prefabs/Characters/Uniforms/Pants_CP_G3/MOH_camo/CP_G3_Pants_base_MOH.et"
+    }
+    SCR_FeetLoadoutSlotInfo Boots {
+     Prefab "{AB9E3D5524876346}Prefabs/Characters/Footwear/Boots_Faradey_1085/Footware_Faradey_1085.et"
+    }
+    LoadoutSlotInfo Back {
+     Prefab "{16C7AD0508F53A9C}Prefabs/Items/Equipment/Backpacks/backpack_Wartech_BB102/Backpack_Wartech_BB102_OD.et"
+    }
+    LoadoutSlotInfo Vest {
+     Prefab "{17C8AB71FB695468}Prefabs/Characters/Vests/Vest_Taktika/Variants/Vest_Taktika_belt_taktika_3.et"
+    }
+    LoadoutSlotInfo HandWear {
+     Prefab "{8D4A4DF9111F0682}Prefabs/Characters/Handwear/Gloves_MechanixMpact/Gloves_mpack_Blk.et"
+    }
+   }
+  }
+  SCR_InventoryStorageManagerComponent "{520EA1D2DB118DE5}" {
+   InitialInventoryItems {
+    ItemsInitConfigurationItem "{5D7CC173E6675BF7}" {
+     TargetStorage "Back/Backpack_Wartech_BB102_OD.et"
+    }
+    ItemsInitConfigurationItem "{5D7CC173E6675BF5}" {
+     TargetStorage "Back/Backpack_Wartech_BB102_OD.et"
+    }
+    ItemsInitConfigurationItem "{54A68D64D7F9124F}" {
+     TargetStorage "Back/Backpack_Wartech_BB102_OD.et"
+    }
+    ItemsInitConfigurationItem "{6A3E5E0296A4E11C}" {
+     TargetStorage "Back/Backpack_Wartech_BB102_OD.et"
+     PrefabsToSpawn {
+      "{55C5BEE65087F7CD}Prefabs/Drones/DJIBase/DJIRGD5Dropper.et"
+     }
+    }
+   }
+  }
+ }
+ coords 0 0 0
+}

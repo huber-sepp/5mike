@@ -14,7 +14,79 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   }
   coords 10524.904 22.406 9715.115
   {
+   GenericEntity Patrol_Waypoints1 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+    components {
+     SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+      m_bExcludeFromDynamicDespawn 1
+     }
+    }
+    coords 26.646 0 9.253
+    {
+     $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
+      SlotWaypoint5 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fPriorityLevel 1
+         }
+        }
+       }
+       coords -90.49 -20.47 -147.958
+      }
+      SlotWaypoint6 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA8BE37C6}" {
+          m_fPriorityLevel 2
+         }
+        }
+       }
+       coords 117.469 -19.155 46.869
+      }
+      SlotWaypoint8 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA416913A}" {
+          m_fPriorityLevel 3
+         }
+        }
+       }
+       coords 66.664 3.692 142.761
+      }
+      CycleWaypoint1 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointCycle "{5F1A98EEBAF88E76}" {
+          m_fCompletionRadius 400
+          m_fPriorityLevel 4
+         }
+        }
+       }
+       coords -67.258 0.201 4.823
+      }
+      GetInWaypoint1 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fCompletionRadius 400
+          m_sWaypointPrefab "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+         }
+        }
+       }
+       coords -55.59 0.013 12.503
+      }
+     }
+    }
+   }
    GenericEntity LayerTaskClearArea_1 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    components {
+     SCR_ScenarioFrameworkLayerTaskClearArea "{5A6513F46D132331}" {
+      m_eTaskUIVisibility NONE
+      m_eTaskNotificationSettings 0
+     }
+    }
     coords -2.154 0.243 -9.551
     {
      $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
@@ -69,7 +141,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI3 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
-            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_sObjectToSpawn "{344B4B6F787CFB24}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
             m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
@@ -78,12 +150,19 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI4 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_bExcludeFromDynamicDespawn 1
             m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_bCanBeGarbageCollected 0
+            m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{6A0465043633A44F}" {
+             m_aLayerName {
+              "CycleWaypoint1"
+             }
+            }
             m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
             m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
-          coords -1.867 -0.245 12.778
+          coords -25.562 -0.13 38.453
          }
          SlotAI31 {
           components {
@@ -98,10 +177,13 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         GenericEntity Slot1 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
          components {
           SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_bExcludeFromDynamicDespawn 1
            m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+           m_bCanBeGarbageCollected 0
           }
          }
-         coords -2.968 -0.245 20.354
+         coords -27.876 -0.296 29.257
+         angles 0 -165 0
         }
        }
       }
@@ -125,7 +207,79 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   }
   coords 9755.371 55.058 9450.182
   {
+   GenericEntity Patrol_Waypoints2 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+    components {
+     SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+      m_bExcludeFromDynamicDespawn 1
+     }
+    }
+    coords 1.476 -0.129 -10.331
+    {
+     $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
+      SlotWaypoint7 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fPriorityLevel 1
+         }
+        }
+       }
+       coords -90.49 -7.844 -147.958
+      }
+      SlotWaypoint9 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA8BE37C6}" {
+          m_fPriorityLevel 2
+         }
+        }
+       }
+       coords -48.97 10.185 146.042
+      }
+      SlotWaypoint12 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA416913A}" {
+          m_fPriorityLevel 3
+         }
+        }
+       }
+       coords 130.48 3.508 134.814
+      }
+      CycleWaypoint2 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointCycle "{5F1A98EEBAF88E76}" {
+          m_fCompletionRadius 400
+          m_fPriorityLevel 4
+         }
+        }
+       }
+       coords -17.011 1.142 19.085
+      }
+      GetInWaypoint2 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fCompletionRadius 400
+          m_sWaypointPrefab "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+         }
+        }
+       }
+       coords -5.343 1.748 26.765
+      }
+     }
+    }
+   }
    GenericEntity LayerTaskClearArea1 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    components {
+     SCR_ScenarioFrameworkLayerTaskClearArea "{5A6513F46D132331}" {
+      m_eTaskUIVisibility NONE
+      m_eTaskNotificationSettings 0
+     }
+    }
     coords -2.154 -0.106 -9.551
     {
      $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
@@ -180,7 +334,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI8 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
-            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_sObjectToSpawn "{344B4B6F787CFB24}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
             m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
@@ -189,9 +343,15 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI9 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_bExcludeFromDynamicDespawn 1
             m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_bCanBeGarbageCollected 0
+            m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{6A04A61D8BE8FEED}" {
+             m_aLayerName {
+              "CycleWaypoint2"
+             }
+            }
             m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
-            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
           coords -1.867 0.181 12.778
@@ -209,7 +369,9 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         GenericEntity Slot3 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
          components {
           SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_bExcludeFromDynamicDespawn 1
            m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+           m_bCanBeGarbageCollected 0
           }
          }
          coords -1.019 0.627 18.81
@@ -236,7 +398,79 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   }
   coords 9581.872 130.652 10102.798
   {
+   GenericEntity Patrol_Waypoints3 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+    components {
+     SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+      m_bExcludeFromDynamicDespawn 1
+     }
+    }
+    coords -2.078 -0.095 -14.556
+    {
+     $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
+      SlotWaypoint23 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fPriorityLevel 1
+         }
+        }
+       }
+       coords -167.919 -17.784 -103.758
+      }
+      SlotWaypoint24 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA8BE37C6}" {
+          m_fPriorityLevel 2
+         }
+        }
+       }
+       coords 72.465 1.247 -146.73
+      }
+      SlotWaypoint27 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA416913A}" {
+          m_fPriorityLevel 3
+         }
+        }
+       }
+       coords 243.991 -0.276 127.752
+      }
+      CycleWaypoint3 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointCycle "{5F1A98EEBAF88E76}" {
+          m_fCompletionRadius 400
+          m_fPriorityLevel 4
+         }
+        }
+       }
+       coords -67.258 -0.705 4.823
+      }
+      GetInWaypoint3 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fCompletionRadius 400
+          m_sWaypointPrefab "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+         }
+        }
+       }
+       coords -55.59 -0.735 12.503
+      }
+     }
+    }
+   }
    GenericEntity LayerTaskClearArea2 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    components {
+     SCR_ScenarioFrameworkLayerTaskClearArea "{5A6513F46D132331}" {
+      m_eTaskUIVisibility NONE
+      m_eTaskNotificationSettings 0
+     }
+    }
     coords -2.154 -0.04 -9.551
     {
      $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
@@ -291,7 +525,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI13 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
-            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_sObjectToSpawn "{344B4B6F787CFB24}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
             m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
@@ -300,9 +534,15 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI14 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_bExcludeFromDynamicDespawn 1
             m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_bCanBeGarbageCollected 0
+            m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{6A04A61DF3810916}" {
+             m_aLayerName {
+              "CycleWaypoint3"
+             }
+            }
             m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
-            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
           coords 33.768 -0.104 -56.428
@@ -320,7 +560,9 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         GenericEntity Slot4 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
          components {
           SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_bExcludeFromDynamicDespawn 1
            m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+           m_bCanBeGarbageCollected 0
           }
          }
          coords 36.598 0.03 -50.318
@@ -347,7 +589,79 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   }
   coords 8667.804 8.274 10149.44
   {
+   GenericEntity Patrol_Waypoints4 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+    components {
+     SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+      m_bExcludeFromDynamicDespawn 1
+     }
+    }
+    coords 2.248 0.518 -3.804
+    {
+     $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
+      SlotWaypoint18 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fPriorityLevel 1
+         }
+        }
+       }
+       coords -251.005 2.109 -77.208
+      }
+      SlotWaypoint19 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA8BE37C6}" {
+          m_fPriorityLevel 2
+         }
+        }
+       }
+       coords 102.049 17.765 -103.018
+      }
+      SlotWaypoint22 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA416913A}" {
+          m_fPriorityLevel 3
+         }
+        }
+       }
+       coords 168.22 -3.523 149.382
+      }
+      CycleWaypoint4 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointCycle "{5F1A98EEBAF88E76}" {
+          m_fCompletionRadius 400
+          m_fPriorityLevel 4
+         }
+        }
+       }
+       coords -67.258 -1.983 4.823
+      }
+      GetInWaypoint4 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fCompletionRadius 400
+          m_sWaypointPrefab "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+         }
+        }
+       }
+       coords -55.59 -2.623 12.503
+      }
+     }
+    }
+   }
    GenericEntity LayerTaskClearArea4 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    components {
+     SCR_ScenarioFrameworkLayerTaskClearArea "{5A6513F46D132331}" {
+      m_eTaskUIVisibility NONE
+      m_eTaskNotificationSettings 0
+     }
+    }
     coords -2.154 0.751 -9.551
     {
      $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
@@ -402,7 +716,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI18 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
-            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_sObjectToSpawn "{344B4B6F787CFB24}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
             m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
@@ -411,9 +725,15 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI19 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_bExcludeFromDynamicDespawn 1
             m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_bCanBeGarbageCollected 0
+            m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{6A04A61DE1574A50}" {
+             m_aLayerName {
+              "CycleWaypoint4"
+             }
+            }
             m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
-            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
           coords -8.852 -3.796 34.238
@@ -432,7 +752,9 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         GenericEntity Slot5 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
          components {
           SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_bExcludeFromDynamicDespawn 1
            m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+           m_bCanBeGarbageCollected 0
           }
          }
          coords -5.458 -3.084 27.665
@@ -461,7 +783,80 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   coords 8624.317 95.373 9320.687
   angles 0 44.701 0
   {
+   GenericEntity Patrol_Waypoints5 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+    components {
+     SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+      m_bExcludeFromDynamicDespawn 1
+     }
+    }
+    coords -2.199 0.002 -8.566
+    angles 0 -44.701 0
+    {
+     $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
+      SlotWaypoint13 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fPriorityLevel 1
+         }
+        }
+       }
+       coords -316.907 9.365 98.79
+      }
+      SlotWaypoint14 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA8BE37C6}" {
+          m_fPriorityLevel 2
+         }
+        }
+       }
+       coords 221.34 14.205 -22.969
+      }
+      SlotWaypoint17 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA416913A}" {
+          m_fPriorityLevel 3
+         }
+        }
+       }
+       coords 80.86 -2.313 252.458
+      }
+      CycleWaypoint5 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointCycle "{5F1A98EEBAF88E76}" {
+          m_fCompletionRadius 400
+          m_fPriorityLevel 4
+         }
+        }
+       }
+       coords -67.258 0.337 4.823
+      }
+      GetInWaypoint5 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fCompletionRadius 400
+          m_sWaypointPrefab "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+         }
+        }
+       }
+       coords -55.59 0.362 12.503
+      }
+     }
+    }
+   }
    GenericEntity LayerTaskClearArea3 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    components {
+     SCR_ScenarioFrameworkLayerTaskClearArea "{5A6513F46D132331}" {
+      m_eTaskUIVisibility NONE
+      m_eTaskNotificationSettings 0
+     }
+    }
     coords -2.154 0.243 -9.551
     {
      $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
@@ -516,7 +911,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI23 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
-            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_sObjectToSpawn "{344B4B6F787CFB24}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
             m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
@@ -525,12 +920,20 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI24 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_bExcludeFromDynamicDespawn 1
             m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_bCanBeGarbageCollected 0
+            m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{6A04A61DD414FC51}" {
+             m_aLayerName {
+              "CycleWaypoint5"
+             }
+            }
             m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
             m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
-          coords -1.466 -0.245 13.069
+          coords 3.983 0.232 43.136
+          angles 0 -91.578 0
          }
          SlotAI36 {
           components {
@@ -546,11 +949,13 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         GenericEntity Slot6 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
          components {
           SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_bExcludeFromDynamicDespawn 1
            m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+           m_bCanBeGarbageCollected 0
           }
          }
-         coords -1.033 -0.228 19.577
-         angles 0 1.875 0
+         coords -2.534 0.209 43.389
+         angles 0 -89.703 0
         }
        }
       }
@@ -574,7 +979,79 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
   }
   coords 9570.848 29.614 8780.303
   {
+   GenericEntity Patrol_Waypoints6 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+    components {
+     SCR_ScenarioFrameworkLayerBase "{5A2283EA2A0B4B14}" {
+      m_bExcludeFromDynamicDespawn 1
+     }
+    }
+    coords -0.274 0.844 2.884
+    {
+     $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
+      SlotWaypoint28 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fPriorityLevel 1
+         }
+        }
+       }
+       coords -148.623 -10.72 -224.902
+      }
+      SlotWaypoint29 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA8BE37C6}" {
+          m_fPriorityLevel 2
+         }
+        }
+       }
+       coords 242.79 -28.795 -45.376
+      }
+      SlotWaypoint32 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA416913A}" {
+          m_fPriorityLevel 3
+         }
+        }
+       }
+       coords 324.913 -24.099 147.977
+      }
+      CycleWaypoint6 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointCycle "{5F1A98EEBAF88E76}" {
+          m_fCompletionRadius 400
+          m_fPriorityLevel 4
+         }
+        }
+       }
+       coords -67.258 7.836 4.823
+      }
+      GetInWaypoint6 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_bShowDebugShapesInWorkbench 0
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+          m_fCompletionRadius 400
+          m_sWaypointPrefab "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
+         }
+        }
+       }
+       coords -55.59 8.31 12.503
+      }
+     }
+    }
+   }
    GenericEntity LayerTaskClearArea5 : "{CDC0845AD90BA073}Prefabs/Systems/ScenarioFramework/Components/LayerTaskClearArea.et" {
+    components {
+     SCR_ScenarioFrameworkLayerTaskClearArea "{5A6513F46D132331}" {
+      m_eTaskUIVisibility NONE
+      m_eTaskNotificationSettings 0
+     }
+    }
     coords -2.154 -2.296 -9.551
     {
      $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
@@ -629,7 +1106,7 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI28 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
-            m_sObjectToSpawn "{344B4B6F787CFB23}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
+            m_sObjectToSpawn "{344B4B6F787CFB24}Prefabs/Groups/OPFOR/Group_USSR_EngineerTeam.et"
             m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
@@ -638,9 +1115,15 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
          SlotAI29 {
           components {
            SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+            m_bExcludeFromDynamicDespawn 1
             m_sObjectToSpawn "{E552DABF3636C2AD}Prefabs/Groups/OPFOR/Group_USSR_RifleSquad.et"
+            m_bCanBeGarbageCollected 0
+            m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{6A04A61DC26A95A0}" {
+             m_aLayerName {
+              "CycleWaypoint6"
+             }
+            }
             m_sWPToSpawn "{B049D4C74FBC0C4D}Prefabs/AI/Waypoints/AIWaypoint_GetInNearest.et"
-            m_bExcludeFromDynamicDespawnOnVehicleEntered 0
            }
           }
           coords 51.411 -15.718 -139.964
@@ -659,7 +1142,9 @@ $grp GenericEntity : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Compon
         GenericEntity Slot7 : "{AA01691FDC4E9167}Prefabs/Systems/ScenarioFramework/Components/Slot.et" {
          components {
           SCR_ScenarioFrameworkSlotBase "{5A22E1D67E712EC8}" {
+           m_bExcludeFromDynamicDespawn 1
            m_sObjectToSpawn "{447CFE8D73F95C3E}Prefabs/Vehicles/Wheeled/BTR70/BTR70_AFRF.et"
+           m_bCanBeGarbageCollected 0
           }
          }
          coords 44.612 -15.639 -142.763

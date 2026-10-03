@@ -1,0 +1,80 @@
+GenericEntity Area_A : "{C72F956E4AC6A6E7}Prefabs/Systems/ScenarioFramework/Components/Area.et" {
+ components {
+  SCR_ScenarioFrameworkArea "{59E8CDC50969206E}" {
+   Enabled 0
+   m_bShowDebugShapesDuringRuntime 1
+  }
+ }
+ coords 81.093 4.706 64.021
+ {
+  $grp GenericEntity : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+   AI_group {
+    coords -0.406 0.001 -0.079
+    {
+     GenericEntity Patrol1 : "{5F9FFF4BF027B3A3}Prefabs/Systems/ScenarioFramework/Components/Layer.et" {
+      coords 0.406 -0.001 0.079
+      {
+       GenericEntity SlotAI1 : "{8D43830F02C3F114}Prefabs/Systems/ScenarioFramework/Components/SlotAI.et" {
+        components {
+         SCR_ScenarioFrameworkSlotAI "{5A26B3E02AC77BA0}" {
+          m_sObjectToSpawn "{3BF36BDEEB33AEC9}Prefabs/Groups/BLUFOR/Group_US_SentryTeam.et"
+          m_WaypointSet SCR_ScenarioFrameworkWaypointSet "{5F1A98EEDF9F8A95}" {
+           m_aLayerName {
+            "CycleWaypoint"
+           }
+          }
+          m_bSpawnAIOnWPPos 1
+         }
+        }
+        coords 0.682 -0.015 4.936
+       }
+      }
+     }
+    }
+   }
+   Patrol_Waypoints {
+    coords -12.827 0.054 4.921
+    {
+     $grp GenericEntity : "{EBD91177954E8236}Prefabs/Systems/ScenarioFramework/Components/SlotWaypoint.et" {
+      SlotWaypoint1 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEB541C386}" {
+         }
+        }
+       }
+       coords 2.58 0.34 -1.688
+      }
+      SlotWaypoint2 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA8BE37C6}" {
+         }
+        }
+       }
+       coords -16.711 1.796 6.057
+      }
+      SlotWaypoint3 {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointPatrol "{5F1A98EEA416913A}" {
+         }
+        }
+       }
+       coords 37.274 2.561 -3.31
+      }
+      CycleWaypoint {
+       components {
+        SCR_ScenarioFrameworkSlotWaypoint "{5EEEE11FAD8EE85C}" {
+         m_Waypoint SCR_ScenarioFrameworkWaypointCycle "{5F1A98EEBAF88E76}" {
+         }
+        }
+       }
+       coords 37.896 2.66 -26.258
+      }
+     }
+    }
+   }
+  }
+ }
+}

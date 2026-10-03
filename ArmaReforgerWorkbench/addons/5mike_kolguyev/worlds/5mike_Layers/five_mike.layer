@@ -18,7 +18,7 @@ SCR_AIWorld AIWorld : "{672531FAC0834C06}Prefabs/AI/SCR_AIWorld_Cain.et" {
  coords 6399.335 444.104 6417.631
 }
 PerceptionManager PerceptionManager : "{028DAEAD63E056BE}Prefabs/World/Game/PerceptionManager.et" {
- coords 4883.794 14.438 8950.569
+ coords 11356.561 88.713 10535.524
 }
 SCR_GameModeEditor GameMode : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMode_Editor_Full.et" {
  components {
@@ -40,109 +40,6 @@ SCR_GameModeEditor GameMode : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMod
   }
  }
  coords 6396.046 443.714 6417.921
- userScript "	// NOT const!!! // about arrays: scripts/Core/proto/Types.c"\
- "	protected ref array<IEntity> spawned_opfor = {};"\
- "	protected ref array<int> to_delete = {};"\
- "	"\
- "	"\
- "	void five_mike_loop()"\
- "    {"\
- "		protected PlayerManager playerManager = GetGame().GetPlayerManager();"\
- "		protected array<int> allPlayers = {};"\
- "		playerManager.GetPlayers(allPlayers);"\
- ""\
- "		protected EntitySpawnParams params = new EntitySpawnParams();"\
- "		params.TransformMode = ETransformMode.WORLD;"\
- "		"\
- "		protected Resource resource_opfor = Resource.Load(\"{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et\");"\
- "		protected Resource resource_opfor_02 = Resource.Load(\"{30ED11AA4F0D41E5}Prefabs/Groups/OPFOR/Group_USSR_FireGroup.et\");"\
- "		"\
- "		Print(\"5mike loop ext execute\", LogLevel.NORMAL);"\
- "		"\
- "		// OPFOR"\
- "		for (int i = 0; i < spawned_opfor.Count(); i++)"\
- "		{"\
- "			bool too_far = true;				"\
- "			foreach (int oneplayerid : allPlayers)"\
- "			{"\
- "				protected IEntity player = playerManager.GetPlayerControlledEntity(oneplayerid);"\
- "				if (!player) continue;"\
- "				if ( spawned_opfor[i] != NULL )"\
- "				{"\
- "					if ( vector.Distance(spawned_opfor[i].GetOrigin(), player.GetOrigin()) < 400 )"\
- "					{"\
- "						too_far = false;"\
- "					}"\
- "				}"\
- "			}"\
- "			if ( too_far )"\
- "			{"\
- "				to_delete.Insert(i);"\
- "			}"\
- "		}"\
- "		"\
- "		for (int i = 0; i < to_delete.Count(); i++)"\
- "		{"\
- "			if ( spawned_opfor.IsIndexValid(to_delete[i]) )"\
- "			{"\
- "				if ( spawned_opfor[to_delete[i]] != NULL )"\
- "				{"\
- "					SCR_EntityHelper.DeleteEntityAndChildren( spawned_opfor[to_delete[i]] );"\
- "				}"\
- "				spawned_opfor.Remove(to_delete[i]);"\
- "			}"\
- "		}"\
- "		"\
- "		to_delete.Clear();"\
- "		"\
- "		"\
- "		// foreach (int oneplayerid : allPlayers){}"\
- "		int oneplayerid = allPlayers.GetRandomElement();"\
- "		Print(\"oneplayerid: \" + oneplayerid, LogLevel.NORMAL);"\
- "		"\
- "		protected IEntity player = playerManager.GetPlayerControlledEntity(oneplayerid);"\
- "		if (!player) return;"\
- "		protected vector spawn_pos = SCR_Math2D.GenerateRandomPointInRadius(400, 405, player.GetOrigin(), true);"\
- "		bool too_close = false;"\
- "		foreach (int oneplayerid2 : allPlayers)"\
- "		{"\
- "			protected IEntity player2 = playerManager.GetPlayerControlledEntity(oneplayerid2);"\
- "			if (!player2) continue;"\
- "			if ( vector.Distance(player2.GetOrigin(), spawn_pos) < 400 )"\
- "			{"\
- "				too_close = true;"\
- "			}"\
- "		}"\
- "		"\
- "		if ( vector.Distance(GetGame().GetWorld().FindEntityByName(\"base_blufor\").GetOrigin(), spawn_pos) < 450 )"\
- "		{"\
- "			too_close = true;"\
- "		}"\
- "		"\
- "		if ( !too_close )"\
- "		{"\
- "			//params.Transform = {\"1 0 0\",\"0 1 0\",\"0 0 1\",spawn_pos};"\
- "			params.Transform[3] = spawn_pos;"\
- "			ResourceName wp_prefab = \"{FFF9518F73279473}PrefabsEditable/Auto/AI/Waypoints/E_AIWaypoint_Move.et\";"\
- "			"\
- "			if( (spawned_opfor.Count() < 20) && (vector.Distance(GetGame().GetWorld().FindEntityByName(\"spawner_opfor\").GetOrigin(), spawn_pos) < 6000)  )"\
- "			{"\
- "				protected IEntity opfor = GetGame().SpawnEntityPrefab(resource_opfor, GetGame().GetWorld(), params);"\
- "				spawned_opfor.Insert(opfor);"\
- "				"\
- "				EntitySpawnParams spawnParams_opfor = new EntitySpawnParams();"\
- "				spawnParams_opfor.Transform[3] = player.GetOrigin(); // player.GetOrigin() // spawn_pos"\
- "				AIWaypoint wp_opfor =  AIWaypoint.Cast(GetGame().SpawnEntityPrefab(Resource.Load(wp_prefab), GetGame().GetWorld(), spawnParams_opfor));"\
- "				"\
- "				protected AIGroup group_opfor = AIGroup.Cast(opfor);"\
- "				group_opfor.AddWaypoint(wp_opfor);"\
- "			}"\
- "		}"\
- "	}"
- OnGameStart ""\
- "		Print(\"5mike loop ext initialized\", LogLevel.NORMAL);"\
- "		GetGame().GetCallqueue().CallLater(this.five_mike_loop, 90000, true);"\
- "	"
  {
   RadioManagerEntity RadioManager {
    ID "56E685E9ECAABCFD"
@@ -187,6 +84,7 @@ SCR_GameModeEditor GameMode : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMod
        }
       }
      }
+     m_sFactionBackground "{68D2847B0077E872}UI/Textures/DeployMenu/Loadout-BG/Loadout_BG_Custom.imageset"
     }
    }
   }
@@ -197,28 +95,40 @@ SCR_GameModeEditor GameMode : "{DA3986AF1B5032B7}Prefabs/MP/Modes/Editor/GameMod
    ID "56E685E92F1B7E2A"
    m_aPlayerLoadouts {
     SCR_FactionPlayerLoadout "{5596D845DBEEF78C}" {
-     m_sLoadoutName "TL"
-     m_sLoadoutResource "{9E1A88F3CFB5C274}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC_MC/TL.et"
+     m_sLoadoutName "Führung"
+     m_sLoadoutResource "{E398E44759DA1A43}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_TL.et"
     }
     SCR_PlayerArsenalLoadout "{568CC9D1BC0FCCF3}" {
-     m_sLoadoutResource "{1791BB083C7FD88B}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC_MC/Character_RHS_USMC_MARSOC_MC_LAT2.et"
     }
-    SCR_FactionPlayerLoadout "{69E042C11DD3CB77}" {
-     m_sLoadoutName "Operator"
-     m_sLoadoutResource "{1791BB083C7FD88B}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC_MC/Character_RHS_USMC_MARSOC_MC_LAT2.et"
+    SCR_FactionPlayerLoadout "{69F2B61DDA289383}" {
+     m_sLoadoutName "MG"
+     m_sLoadoutResource "{5B1996C05B1E51A4}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_AR.et"
      m_sAffiliatedFaction "US"
     }
-    SCR_FactionPlayerLoadout "{69E042C128BA1361}" {
-     m_sLoadoutName "CFR"
-     m_sLoadoutResource "{F4E395634D38DFE5}Prefabs/Characters/Factions/BLUFOR/RHS_USAF/RHS_USAF_MARSOC_MC/CFR.et"
+    SCR_FactionPlayerLoadout "{69F2B61DD33B672F}" {
+     m_sLoadoutName "Gren"
+     m_sLoadoutResource "{84029128FA6F6BB9}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_GL.et"
+     m_sAffiliatedFaction "US"
+    }
+    SCR_FactionPlayerLoadout "{69F2B61DC1E53B5F}" {
+     m_sLoadoutName "Drone"
+     m_sLoadoutResource "{371FD0F920B600DD}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Scout.et"
+     m_sAffiliatedFaction "US"
+    }
+    SCR_FactionPlayerLoadout "{69F2B61C11F72AEE}" {
+     m_sLoadoutName "San"
+     m_sLoadoutResource "{C9E4FEAF5AAC8D8C}Prefabs/Characters/Factions/BLUFOR/US_Army/Character_US_Medic.et"
      m_sAffiliatedFaction "US"
     }
    }
   }
  }
 }
+FiveMikeAmbientSpawn {
+ coords 6397.345 443.743 6416.845
+}
 MusicManager MusicManager : "{359452CCDBDD03F5}Prefabs/Sounds/Music/MusicManager_Campaign.et" {
- coords 4883.426 14.456 8950.561
+ coords 6396.193 443.729 6417.893
 }
 SCR_SpawnPoint spawner_opfor : "{45225582B358C31A}PrefabsEditable/SpawnPoints/E_SpawnPoint_USSR.et" {
  coords 6489.916 493.374 6655.972
@@ -236,11 +146,15 @@ GenericEntity : "{8CA93330EA43EA78}PrefabsEditable/Auto/Props/Military/Compositi
  coords 11375.782 86.947 10521.521
  angles 0 -67.888 0
 }
+GenericEntity : "{A18D9C677F47AC1C}PrefabsEditable/Auto/Props/Military/Arsenal/AmmoBoxes/US/E_AmmoBoxArsenal_Medical_US.et" {
+ coords 11373.226 86.924 10524.988
+ angles 0 -168.139 0
+}
 $grp GenericEntity : "{C1AB654F77ABA58B}PrefabsEditable/Auto/Props/Military/Compositions/US/E_ArsenalBox_US.et" {
  arsenal_vanilla {
   components {
    SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
-    m_eSupportedArsenalItemTypes 1000028
+    m_eSupportedArsenalItemTypes 2048604
     m_eArsenalSaveType NO_RESTRICTIONS
    }
   }
@@ -250,7 +164,7 @@ $grp GenericEntity : "{C1AB654F77ABA58B}PrefabsEditable/Auto/Props/Military/Comp
  {
   components {
    SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
-    m_eSupportedArsenalItemTypes 2055900
+    m_eSupportedArsenalItemTypes 2055772
     m_eArsenalSaveType NO_RESTRICTIONS
    }
    SCR_FactionAffiliationComponent "{5A50E7655452A21D}" {
@@ -267,7 +181,7 @@ SCR_SpawnPoint base_blufor : "{CEA2B24051A44525}PrefabsEditable/SpawnPoints/E_Sp
 GenericEntity : "{E83944C37C6FA465}PrefabsEditable/Auto/Props/Military/Compositions/FIA/E_ArsenalBox_FIA.et" {
  components {
   SCR_ArsenalComponent "{56F2C6D1431AD9AF}" {
-   m_eSupportedArsenalItemTypes 2054108
+   m_eSupportedArsenalItemTypes 2053980
    m_eArsenalSaveType NO_RESTRICTIONS
   }
   SCR_FactionAffiliationComponent "{5A50E7655452A21D}" {
